@@ -18,7 +18,16 @@
             <a class="nav-link" routerLinkActive="active" routerLink="/protected" >Protected</a>
           </li>
         </ul>
-        
+       
+        <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+          <button (click)="auth.logout({ returnTo: 'http://localhost:4200' })">
+            Log out
+          </button>
+        </ng-container>
+    
+        <ng-template #loggedOut>
+          <button (click)="auth.loginWithRedirect()">Log in</button>
+        </ng-template>
       </div>
     </div>
   </nav>

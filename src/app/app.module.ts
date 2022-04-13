@@ -8,6 +8,8 @@ import { HomeComponent } from './components/home/home.component';
 import { PricesComponent } from './components/prices/prices.component';
 import { ProtectedComponent } from './components/protected/protected.component';
 
+import { AuthModule } from '@auth0/auth0-angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,10 +17,15 @@ import { ProtectedComponent } from './components/protected/protected.component';
     HomeComponent,
     PricesComponent,
     ProtectedComponent
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AuthModule.forRoot({
+      domain: 'dev-fmb8v4jc.us.auth0.com',
+      clientId: 'QmWT872XNBa0blTMkmptqCgrzUBtwNDb'
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
