@@ -1,1 +1,8 @@
-<p>protected works!</p>
+<h1>User profile</h1>
+<hr>
+<pre>
+    <ul *ngIf="auth.user$ | async as user">
+        <li>{{ user.name }}</li>
+        <li>{{ user.email }}</li>
+      </ul>`
+</pre>
